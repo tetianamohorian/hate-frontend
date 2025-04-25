@@ -72,9 +72,9 @@ const InfoBox = () => {
         ))}
       </ul>
     </div>
-    )}
-     </div>
-  );
-};
+  </div>
+)}
+
+    
 
 export default InfoBox;
