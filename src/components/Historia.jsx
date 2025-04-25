@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const History = ({ history = [] }) => {
+const History = () => {
+  const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    const fetchHistory = async () => {
+      try {
+        const response = await fetch("https://hate-backend-production.up.railway.app/api/history");
+        const data = await response.json();
+        setHistory(data.reverse());
+      } catch (err) {
+        console.error("Nepodarilo sa načítať históriu:", err);
+      }
+    };
+
+    fetchHistory();
+  }, []);
+
   return (
     <div className="mt-10 bg-white/5 p-6 rounded-2xl backdrop-blur-xl max-w-2xl mx-auto shadow-md border border-white/10">
       <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2">
@@ -8,28 +24,32 @@ const History = ({ history = [] }) => {
       </h3>
 
       <div className="space-y-3 max-h-[300px] overflow-y-auto pr-2 custom-scroll">
-        {history.slice(0, 50).map((item, index) => (
-          <div
-            key={index}
-            className="bg-white/10 hover:bg-white/20 transition duration-200 px-4 py-3 rounded-lg flex flex-col md:flex-row md:justify-between md:items-center"
-          >
-            <div className="text-white font-medium flex-1 truncate">
-              💬 {item.text}
-            </div>
+        {history.length === 0 ? (
+          <p className="text-gray-400 text-sm text-center">Zatiaľ neexistujú žiadne záznamy.</p>
+        ) : (
+          history.slice(0, 50).map((item, index) => (
             <div
-              className={`font-semibold text-sm mt-2 md:mt-0 md:text-right ${
-                item.prediction === 'Pravdepodobne toxický'
-                  ? 'text-red-400'
-                  : 'text-green-400'
-              }`}
+              key={index}
+              className="bg-white/10 hover:bg-white/20 transition duration-200 px-4 py-3 rounded-lg flex flex-col md:flex-row md:justify-between md:items-center"
             >
-              {item.prediction}
+              <div className="text-white font-medium flex-1 truncate">
+                💬 {item.text}
+              </div>
+              <div
+                className={`font-semibold text-sm mt-2 md:mt-0 md:text-right ${
+                  item.prediction === 'Pravdepodobne toxický'
+                    ? 'text-red-400'
+                    : 'text-green-400'
+                }`}
+              >
+                {item.prediction}
+              </div>
+              <div className="text-xs text-gray-400 mt-1 md:mt-0 md:ml-4 whitespace-nowrap">
+                {item.timestamp}
+              </div>
             </div>
-            <div className="text-xs text-gray-400 mt-1 md:mt-0 md:ml-4 whitespace-nowrap">
-              {item.timestamp}
-            </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
