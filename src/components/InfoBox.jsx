@@ -42,24 +42,39 @@ const InfoBox = () => {
     <p>{paragraphText}</p>
 
     <ChatInput onSubmit={handleSendMessage} /> {}
-  {/* História predikcií */}
-      {history.length > 0 && (
-        <div className="mt-10 bg-white/5 p-5 rounded-xl backdrop-blur-md max-w-xl mx-auto max-h-80 overflow-y-auto shadow-inner">
-          <h3 className="text-white text-lg font-semibold mb-4 text-center">🕘 História analýz</h3>
-          <ul className="space-y-3 text-sm text-gray-300">
-            {history.slice(0, 10).map((item, index) => (
-              <li key={index} className="bg-white/10 px-4 py-2 rounded-lg flex flex-col md:flex-row md:justify-between md:items-center">
-                <span className="truncate max-w-full md:max-w-[60%]">💬 {item.text}</span>
-                <span className={`font-medium mt-1 md:mt-0 ${item.prediction === "Pravdepodobne toxický" ? "text-red-400" : "text-green-400"}`}>
-                  {item.prediction}
-                </span>
-                <span className="text-xs text-gray-400 mt-1 md:mt-0">{item.timestamp}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+  {history.length > 0 && (
+  <div className="mt-10 bg-white/5 p-5 rounded-xl backdrop-blur-md max-w-xl mx-auto shadow-inner">
+    <h3 className="text-white text-lg font-semibold mb-4 text-center">🕘 História analýz</h3>
+
+    <div className="max-h-80 overflow-y-auto pr-2">
+      <ul className="space-y-3 text-sm text-gray-300 list-none">
+        {history.slice(0, 15).map((item, index) => (
+          <li
+            key={index}
+            className="bg-white/10 px-4 py-2 rounded-lg flex flex-col md:flex-row md:justify-between md:items-center"
+          >
+            <span className="truncate max-w-full md:max-w-[50%]">
+              💬 <span className="text-white">{item.text}</span>
+            </span>
+
+            <span
+              className={`font-medium mt-1 md:mt-0 ${
+                item.prediction === 'Pravdepodobne toxický'
+                  ? 'text-red-400'
+                  : 'text-green-400'
+              }`}
+            >
+              {item.prediction}
+            </span>
+
+            <span className="text-xs text-gray-400 mt-1 md:mt-0">{item.timestamp}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
+)}
+
 );
 }
 
