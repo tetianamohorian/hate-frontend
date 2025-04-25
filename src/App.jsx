@@ -20,4 +20,4 @@ const App = () => {
   );
 };
 
-export default App; у
+export default App; 
