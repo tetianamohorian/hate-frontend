@@ -3,6 +3,7 @@ import { Send } from 'lucide-react';
 
 const ChatInput = ({ onSubmit }) => {
   const [input, setInput] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
