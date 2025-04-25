@@ -6,7 +6,10 @@ const ChatInput = ({ onSubmit }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    
     console.log("Formulár bol odoslaný!", input); // Добавили лог
+    
     if (input.trim()) {
       try {
       const response = await fetch("https://hate-backend-production.up.railway.app/api/predict", {
@@ -16,7 +19,11 @@ const ChatInput = ({ onSubmit }) => {
       });
       const data = await response.json();
       //alert(`Výsledok analýzy: ${data.prediction}`);
-      
+      if (!response.ok) 
+      {
+          setError(data.error || "Chyba pri analýze textu.");
+          return;
+      }
       if (onSubmit) 
       {
         onSubmit(input, data.prediction);
@@ -26,6 +33,9 @@ const ChatInput = ({ onSubmit }) => {
       console.error("Ошибка запроса:", error);
       alert("Chyba pri analýze textu!");
     }
+    }
+    else {
+      setError("Text nesmie byť prázdny.");
     }
   };
 
@@ -44,6 +54,11 @@ const ChatInput = ({ onSubmit }) => {
           <Send size={24} />
         </button>
       </form>
+       {error && (
+        <div className="mt-4 text-red-500 font-semibold text-center">
+          ⚠️ {error}
+        </div>
+      )}
     </div>
   );
 };
