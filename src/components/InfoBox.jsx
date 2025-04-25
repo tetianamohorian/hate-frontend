@@ -36,38 +36,35 @@ const InfoBox = () => {
 
       <ChatInput onSubmit={handleSendMessage} />
 
-      {history.length > 0 && (
-        <div className="mt-10 bg-white/5 p-5 rounded-xl backdrop-blur-md max-w-xl mx-auto shadow-inner">
-          <h3 className="text-white text-lg font-semibold mb-4 text-center">🕘 História analýz</h3>
+     <div className="mt-10 bg-white/5 p-5 rounded-xl backdrop-blur-md max-w-3xl mx-auto shadow-inner">
+  <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2">
+    <span className="text-xl">🕘</span> História analýz
+  </h3>
 
-          <div className="max-h-80 overflow-y-auto pr-2">
-            <ul className="space-y-3 text-sm text-gray-300 list-none">
-              {history.slice(0, 15).map((item, index) => (
-                <li
-                  key={index}
-                  className="bg-white/10 px-4 py-2 rounded-lg flex flex-col md:flex-row md:justify-between md:items-center"
-                >
-                  <span className="truncate max-w-full md:max-w-[50%]">
-                    💬 <span className="text-white">{item.text}</span>
-                  </span>
+  <div className="max-h-52 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">
+    <table className="w-full text-sm text-left text-gray-300 table-auto">
+      <thead className="sticky top-0 bg-white/10 backdrop-blur-sm text-gray-400 text-xs uppercase">
+        <tr>
+          <th className="px-4 py-2 font-medium">Text</th>
+          <th className="px-4 py-2 font-medium">Výsledok</th>
+          <th className="px-4 py-2 font-medium">Dátum</th>
+        </tr>
+      </thead>
+      <tbody>
+        {history.slice(0, 20).map((item, index) => (
+          <tr key={index} className="border-b border-white/10">
+            <td className="px-4 py-2 truncate max-w-[200px]">{item.text}</td>
+            <td className={`px-4 py-2 font-medium ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400' : 'text-green-400'}`}>
+              {item.prediction}
+            </td>
+            <td className="px-4 py-2 text-xs text-gray-400">{item.timestamp}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
 
-                  <span
-                    className={`font-medium mt-1 md:mt-0 ${
-                      item.prediction === 'Pravdepodobne toxický'
-                        ? 'text-red-400'
-                        : 'text-green-400'
-                    }`}
-                  >
-                    {item.prediction}
-                  </span>
-
-                  <span className="text-xs text-gray-400 mt-1 md:mt-0">{item.timestamp}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
