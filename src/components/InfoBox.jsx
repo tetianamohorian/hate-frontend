@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ChatInput from './ChatInput.jsx';
+import Historia from './Historia.jsx';
 
 const InfoBox = () => {
   const [headerText, setHeaderText] = useState('Analyzujte text na nenávistný jazyk');
@@ -16,10 +17,17 @@ const InfoBox = () => {
     }
   };
 
-  const handleSendMessage = (userMessage, serverResponse) => {
-    setHeaderText(serverResponse);
-    setParagraphText(`Váš text bol: "${userMessage}"`);
-    fetchHistory();
+  const handleSendMessage = async (userMessage) => {
+    try {
+      await fetch("https://hate-backend-production.up.railway.app/api/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: userMessage }),
+      });
+      fetchHistory(); // Obnovíme históriu
+    } catch (error) {
+      console.error("Chyba pri odosielaní:", error);
+    }
   };
 
   useEffect(() => {
@@ -31,9 +39,15 @@ const InfoBox = () => {
       <h2>{headerText}</h2>
       <p>{paragraphText}</p>
 
+      {/* Input na odosielanie */}
       <ChatInput onSubmit={handleSendMessage} />
 
-     
+      {/* História hneď pod inputom */}
+      <div className="mt-8 w-full max-w-3xl mx-auto">
+        <div className="bg-white/5 rounded-lg p-4 backdrop-blur-md shadow-inner max-h-[280px] overflow-y-auto">
+          <Historia history={history} />
+        </div>
+      </div>
     </div>
   );
 };
