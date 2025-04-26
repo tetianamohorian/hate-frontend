@@ -1,3 +1,4 @@
+// InfoBox.jsx
 import React, { useState, useEffect } from 'react';
 import ChatInput from './ChatInput.jsx';
 import Historia from './Historia.jsx';
@@ -24,7 +25,7 @@ const InfoBox = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: userMessage }),
       });
-      fetchHistory(); // Obnovíme históriu
+      fetchHistory(); // Обновляем историю
     } catch (error) {
       console.error("Chyba pri odosielaní:", error);
     }
@@ -35,26 +36,18 @@ const InfoBox = () => {
   }, []);
 
   return (
-    <div className="info-container text-center">
+    <div className="info-container text-center w-full">
       <h2>{headerText}</h2>
       <p>{paragraphText}</p>
-
-      {/* Input na odosielanie */}
-      <div className="flex flex-col items-center">
+      
+      <div className="flex flex-col items-center w-full">
         <ChatInput onSubmit={handleSendMessage} />
-
-
-        <div className="w-full px-4">
-          <div className="mt-8 w-full">
-            <div className="bg-white/5 rounded-lg p-4 backdrop-blur-md shadow-inner w-full" style={{ maxHeight: "300px", overflowY: "auto" }}>
-                <Historia history={history} />
-            </div>
-          </div>
+        
+        {/* История анализов - теперь занимает всю доступную ширину */}
+        <div className="w-full mt-8">
+          <Historia history={history} />
         </div>
       </div>
-
-
-      
     </div>
   );
 };
