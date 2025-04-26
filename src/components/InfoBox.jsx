@@ -44,9 +44,7 @@ const InfoBox = () => {
         <ChatInput onSubmit={handleSendMessage} />
 
         <div className="mt-8 w-full max-w-3xl mx-auto">
-          <div className="bg-white/5 rounded-lg p-4 backdrop-blur-md shadow-inner" style={{ maxHeight: "160px", overflowY: "auto" }}>
             <Historia history={history} />
-          </div>
         </div>
         </div>
 
