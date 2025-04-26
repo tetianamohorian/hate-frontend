@@ -10,7 +10,7 @@ const Historia = ({ history }) => {
   }
 
   return (
-    <div className="w-full bg-white/5 rounded-lg backdrop-blur-md shadow-inner" style={{ height: "100px", overflowY: "auto" }}>
+    <div className="w-full bg-white/5 rounded-lg backdrop-blur-md shadow-inner" style={{ height: "50px", overflowY: "auto" }}>
       {/* Удаляем заголовок
       <div style={{ 
         display: 'grid', 
