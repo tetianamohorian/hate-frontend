@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import InfoBox from './components/InfoBox';
-
+import Historia from './components/Historia';
 import Footer from './components/Footer';
 
 import './App.css';
