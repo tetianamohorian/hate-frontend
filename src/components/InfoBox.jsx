@@ -35,18 +35,19 @@ const InfoBox = () => {
   }, []);
 
   return (
-    <div className="info-container">
+    <div className="info-container text-center">
       <h2>{headerText}</h2>
       <p>{paragraphText}</p>
 
       {/* Input na odosielanie */}
-      <ChatInput onSubmit={handleSendMessage} />
+      <div className="flex flex-col items-center">
+        <ChatInput onSubmit={handleSendMessage} />
 
-      <div className="mt-8 w-full max-w-3xl mx-auto">
-        <div className="bg-white/5 rounded-lg p-4 backdrop-blur-md shadow-inner" style={{ maxHeight: "160px", overflowY: "auto" }}>
-          <Historia history={history} />
+        <div className="mt-8 w-full max-w-3xl mx-auto">
+          <div className="bg-white/5 rounded-lg p-4 backdrop-blur-md shadow-inner" style={{ maxHeight: "160px", overflowY: "auto" }}>
+            <Historia history={history} />
+          </div>
         </div>
-      </div>
 
 
 
