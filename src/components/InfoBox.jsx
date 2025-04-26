@@ -42,12 +42,13 @@ const InfoBox = () => {
       {/* Input na odosielanie */}
       <ChatInput onSubmit={handleSendMessage} />
 
-      {/* História hneď pod inputom */}
       <div className="mt-8 w-full max-w-3xl mx-auto">
-        <div className="bg-white/5 rounded-lg p-4 backdrop-blur-md shadow-inner max-h-[280px] overflow-y-auto">
+        <div className="bg-white/5 rounded-lg p-4 backdrop-blur-md shadow-inner max-h-[240px] overflow-y-auto">
           <Historia history={history} />
         </div>
-      </div>
+    </div>
+
+      
     </div>
   );
 };
