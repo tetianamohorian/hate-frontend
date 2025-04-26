@@ -41,7 +41,8 @@ const InfoBox = () => {
       
       <div className="flex flex-col items-center w-full">
         <ChatInput onSubmit={handleSendMessage} />
-        
+
+        <h3 className="text-white text-lg font-semibold mt-8 mb-4">🕘 História analýz</h3>
         <div className="w-full mt-6 max-w-full mb-8"> 
           <Historia history={history} />
         </div>
