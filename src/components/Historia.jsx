@@ -3,35 +3,33 @@ import React from 'react';
 const Historia = ({ history }) => {
   if (!history || history.length === 0) {
     return (
-      <div className="text-center text-gray-400 mt-4">
+      <div className="text-center text-gray-400">
         Zatiaľ neexistuje žiadna história analýz.
       </div>
     );
   }
 
   return (
-    <div className="overflow-y-auto max-h-[220px] w-full mt-4 rounded-xl bg-white/5 p-4 backdrop-blur-md shadow-inner">
-      <table className="w-full table-auto text-sm text-left text-gray-300">
-        <thead className="text-xs uppercase text-gray-400 bg-white/10">
-          <tr>
-            <th className="px-6 py-3">Text</th>
-            <th className="px-6 py-3">Výsledok</th>
-            <th className="px-6 py-3 text-right">Dátum</th>
+    <table className="w-full table-auto text-sm text-left text-gray-300">
+      <thead className="text-xs uppercase text-gray-400 bg-white/10">
+        <tr>
+          <th className="px-6 py-3">Text</th>
+          <th className="px-6 py-3">Výsledok</th>
+          <th className="px-6 py-3 text-right">Dátum</th>
+        </tr>
+      </thead>
+      <tbody>
+        {history.map((item, index) => (
+          <tr key={index} className="border-b border-white/10 hover:bg-white/5 transition">
+            <td className="px-6 py-3 truncate">{item.text}</td>
+            <td className={`px-6 py-3 ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400 font-semibold' : 'text-green-400 font-semibold'}`}>
+              {item.prediction}
+            </td>
+            <td className="px-6 py-3 text-right">{item.timestamp}</td>
           </tr>
-        </thead>
-        <tbody>
-          {history.map((item, index) => (
-            <tr key={index} className="border-b border-white/10 hover:bg-white/5 transition">
-              <td className="px-6 py-3 truncate">{item.text}</td>
-              <td className={`px-6 py-3 ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400 font-semibold' : 'text-green-400 font-semibold'}`}>
-                {item.prediction}
-              </td>
-              <td className="px-6 py-3 text-right">{item.timestamp}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
