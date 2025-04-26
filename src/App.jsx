@@ -23,23 +23,23 @@ const App = () => {
     fetchHistory(); // načítaj históriu hneď po načítaní stránky
   }, []);
   
-  const handleSendMessage = (message) => {
-    console.log('Отправлено сообщение:', message);
-    try {
-      const response = await fetch("https://hate-backend-production.up.railway.app/api/predict", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: message }),
-      });
+  const handleSendMessage = async (userMessage) => {
+  console.log('Отправлено сообщение:', userMessage);
+  try {
+    const response = await fetch("https://hate-backend-production.up.railway.app/api/predict", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: userMessage }),
+    });
 
-      const data = await response.json();
-      console.log('Výsledok predikcie:', data.prediction);
+    const data = await response.json();
+    console.log('Výsledok predikcie:', data.prediction);
 
-      fetchHistory(); // obnovíme históriu po úspešnom odoslaní
-    } catch (error) {
-      console.error("Chyba pri odosielaní správy:", error);
-    }
-  };
+    fetchHistory(); // obnovíme históriu po úspešnom odoslaní
+  } catch (error) {
+    console.error("Chyba pri odosielaní správy:", error);
+  }
+};
 
   return (
     <div className="app-container">
