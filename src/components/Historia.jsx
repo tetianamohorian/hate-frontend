@@ -1,33 +1,29 @@
 import React from 'react';
 
-const Historia = ({ history = [] }) => {
+const Historia = ({ history }) => {
   return (
-    <table className="w-full text-sm text-left text-gray-300">
-      <thead className="sticky top-0 bg-black/30 backdrop-blur-sm text-gray-400 text-xs uppercase">
-        <tr>
-          <th className="px-4 py-2">Text</th>
-          <th className="px-4 py-2">Výsledok</th>
-          <th className="px-4 py-2">Dátum</th>
-        </tr>
-      </thead>
-      <tbody>
-        {history.length === 0 ? (
+    <div className="w-full overflow-x-auto">
+      <table className="w-full table-auto text-sm text-left text-gray-300">
+        <thead className="text-xs uppercase text-gray-400 bg-white/10">
           <tr>
-            <td colSpan="3" className="text-center py-4 text-gray-400">Žiadne záznamy.</td>
+            <th scope="col" className="px-6 py-3">Text</th>
+            <th scope="col" className="px-6 py-3">Výsledok</th>
+            <th scope="col" className="px-6 py-3">Dátum</th>
           </tr>
-        ) : (
-          history.slice(0, 50).map((item, index) => (
-            <tr key={index} className="hover:bg-white/10 transition">
-              <td className="px-4 py-2 truncate max-w-[200px]">{item.text}</td>
-              <td className={`px-4 py-2 font-semibold ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400' : 'text-green-400'}`}>
+        </thead>
+        <tbody>
+          {history.map((item, index) => (
+            <tr key={index} className="border-b border-white/10 hover:bg-white/5 transition">
+              <td className="px-6 py-2 max-w-[200px] truncate">{item.text}</td>
+              <td className={`px-6 py-2 font-semibold ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400' : 'text-green-400'}`}>
                 {item.prediction}
               </td>
-              <td className="px-4 py-2 text-xs text-gray-400 whitespace-nowrap">{item.timestamp}</td>
+              <td className="px-6 py-2 text-right">{item.timestamp}</td>
             </tr>
-          ))
-        )}
-      </tbody>
-    </table>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
