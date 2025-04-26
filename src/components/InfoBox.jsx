@@ -25,7 +25,7 @@ const InfoBox = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: userMessage }),
       });
-      fetchHistory(); // Обновляем историю
+      fetchHistory();
     } catch (error) {
       console.error("Chyba pri odosielaní:", error);
     }
@@ -43,8 +43,7 @@ const InfoBox = () => {
       <div className="flex flex-col items-center w-full">
         <ChatInput onSubmit={handleSendMessage} />
         
-        {/* История анализов - теперь занимает всю доступную ширину */}
-        <div className="w-full mt-8">
+        <div className="w-full mt-8" style={{ maxWidth: "100%" }}>
           <Historia history={history} />
         </div>
       </div>
