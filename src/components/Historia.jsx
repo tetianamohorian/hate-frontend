@@ -14,9 +14,9 @@ const Historia = ({ history }) => {
       <table className="w-full table-auto text-sm text-left text-gray-300">
         <thead className="text-xs uppercase text-gray-400 bg-white/10">
           <tr>
-            <th className="px-10 py-2">Text</th>
-            <th className="px-10 py-2">Výsledok</th>
-            <th className="px-10 py-2 text-right">Dátum</th>
+            <th className="px-100 py-2">Text</th>
+            <th className="px-100 py-2">Výsledok</th>
+            <th className="px-100 py-2 text-right">Dátum</th>
           </tr>
         </thead>
         <tbody>
@@ -25,11 +25,11 @@ const Historia = ({ history }) => {
               key={index}
               className="border-b border-white/10 hover:bg-white/5 transition"
             >
-              <td className="px-4 py-2 truncate">{item.text}</td>
-              <td className={`px-4 py-2 ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400 font-semibold' : 'text-green-400 font-semibold'}`}>
+              <td className="px-100 py-2 truncate">{item.text}</td>
+              <td className={`px-100 py-2 ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400 font-semibold' : 'text-green-400 font-semibold'}`}>
                 {item.prediction}
               </td>
-              <td className="px-4 py-2 text-right">{item.timestamp}</td>
+              <td className="px-100 py-2 text-right">{item.timestamp}</td>
             </tr>
           ))}
         </tbody>
