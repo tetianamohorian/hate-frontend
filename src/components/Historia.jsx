@@ -10,7 +10,7 @@ const Historia = ({ history }) => {
   }
 
   return (
-    <div className=" overflow-y-auto max-h-[220px] w-full mt-4 rounded-xl bg-white/5 p-4">
+    <div className="bg-white/5 p-4 rounded-lg backdrop-blur-md shadow-inner max-h-[220px] overflow-y-auto w-full">
       <table className="w-full table-fixed text-sm text-left text-gray-300">
         <thead className="text-xs uppercase text-gray-400 bg-white/10">
           <tr>
@@ -25,11 +25,11 @@ const Historia = ({ history }) => {
               key={index}
               className="border-b border-white/10 hover:bg-white/5 transition"
             >
-              <td className="w-1/3 px-4 py-2 truncate">{item.text}</td>
-              <td className={`w-1/3 px-4 py-2 ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400 font-semibold' : 'text-green-400 font-semibold'}`}>
+              <td className="px-4 py-2 truncate">{item.text}</td>
+              <td className={`px-4 py-2 ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400 font-semibold' : 'text-green-400 font-semibold'}`}>
                 {item.prediction}
               </td>
-              <td className="w-1/3 px-4 py-2 text-right">{item.timestamp}</td>
+              <td className="px-4 py-2 text-right">{item.timestamp}</td>
             </tr>
           ))}
         </tbody>
