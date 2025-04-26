@@ -15,7 +15,7 @@ const App = () => {
     <div className="app-container">
       <Header />
       <InfoBox />
-      <Historia />
+     <Historia history={history} />
       <Footer />
 
     </div>
