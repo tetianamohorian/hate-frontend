@@ -11,7 +11,7 @@ const Historia = ({ history }) => {
 
   return (
     <div className=" overflow-y-auto max-h-[220px] w-full mt-4 rounded-xl bg-white/5 p-4">
-      <table className="w-full table-auto text-sm text-left text-gray-300">
+      <table className="w-full table-fixed text-sm text-left text-gray-300">
         <thead className="text-xs uppercase text-gray-400 bg-white/10">
           <tr>
             <th className="w-1/3 px-4 py-2">Text</th>
