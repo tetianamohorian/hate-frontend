@@ -7,8 +7,38 @@ import Footer from './components/Footer';
 import './App.css';
 
 const App = () => {
+  const [history, setHistory] = useState([]);
+
+  const fetchHistory = async () => {
+    try {
+      const response = await fetch("https://hate-backend-production.up.railway.app/api/history");
+      const data = await response.json();
+      setHistory(data.reverse());
+    } catch (error) {
+      console.error("Chyba pri načítaní histórie:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchHistory(); // načítaj históriu hneď po načítaní stránky
+  }, []);
+  
   const handleSendMessage = (message) => {
     console.log('Отправлено сообщение:', message);
+    try {
+      const response = await fetch("https://hate-backend-production.up.railway.app/api/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: message }),
+      });
+
+      const data = await response.json();
+      console.log('Výsledok predikcie:', data.prediction);
+
+      fetchHistory(); // obnovíme históriu po úspešnom odoslaní
+    } catch (error) {
+      console.error("Chyba pri odosielaní správy:", error);
+    }
   };
 
   return (
