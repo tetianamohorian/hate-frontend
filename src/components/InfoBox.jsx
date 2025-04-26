@@ -48,6 +48,7 @@ const InfoBox = () => {
             <Historia history={history} />
           </div>
         </div>
+        </div>
 
 
 
