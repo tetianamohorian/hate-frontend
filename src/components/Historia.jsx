@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Historia = ({ history }) => {
+const Historia = ({ history = [] }) => {
   return (
     <div className="mt-8 max-h-64 overflow-y-auto bg-white/10 rounded-lg p-4 backdrop-blur-md shadow-inner space-y-3">
       {history.length === 0 ? (
