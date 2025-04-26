@@ -46,8 +46,8 @@ const InfoBox = () => {
 
         <div className="w-full px-4">
           <div className="mt-8 w-full">
-            <div className="bg-white/5 rounded-lg p-4 backdrop-blur-md shadow-inner" style={{ maxHeight: "160px", overflowY: "auto" }}>
-              <Historia history={history} />
+            <div className="bg-white/5 rounded-lg p-4 backdrop-blur-md shadow-inner w-full" style={{ maxHeight: "300px", overflowY: "auto" }}>
+                <Historia history={history} />
             </div>
           </div>
         </div>
