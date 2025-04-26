@@ -1,4 +1,3 @@
-// InfoBox.jsx
 import React, { useState, useEffect } from 'react';
 import ChatInput from './ChatInput.jsx';
 import Historia from './Historia.jsx';
@@ -36,14 +35,14 @@ const InfoBox = () => {
   }, []);
 
   return (
-    <div className="info-container text-center w-full">
+    <div className="info-container text-center w-full pb-16">
       <h2>{headerText}</h2>
       <p>{paragraphText}</p>
       
       <div className="flex flex-col items-center w-full">
         <ChatInput onSubmit={handleSendMessage} />
         
-        <div className="w-full mt-8 max-w-full">
+        <div className="w-full mt-6 max-w-full mb-8"> 
           <Historia history={history} />
         </div>
       </div>
