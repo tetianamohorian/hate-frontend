@@ -43,7 +43,7 @@ const InfoBox = () => {
       <div className="flex flex-col items-center w-full">
         <ChatInput onSubmit={handleSendMessage} />
         
-        <div className="w-full mt-8" style={{ maxWidth: "100%" }}>
+        <div className="w-full mt-8 max-w-full">
           <Historia history={history} />
         </div>
       </div>
