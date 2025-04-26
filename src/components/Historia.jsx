@@ -14,9 +14,9 @@ const Historia = ({ history }) => {
       <table className="w-full table-auto text-sm text-left text-gray-300">
         <thead className="text-xs uppercase text-gray-400 bg-white/10">
           <tr>
-            <th className="px-4 py-2">Text</th>
-            <th className="px-4 py-2">Výsledok</th>
-            <th className="px-4 py-2 text-right">Dátum</th>
+            <th className="px-10 py-2">Text</th>
+            <th className="px-10 py-2">Výsledok</th>
+            <th className="px-10 py-2 text-right">Dátum</th>
           </tr>
         </thead>
         <tbody>
