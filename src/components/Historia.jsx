@@ -3,14 +3,14 @@ import React from 'react';
 const Historia = ({ history }) => {
   if (!history || history.length === 0) {
     return (
-      <div className="text-center text-gray-400 p-4 bg-white/5 rounded-lg backdrop-blur-md shadow-inner w-full">
+      <div className="text-center text-gray-400 p-4 bg-[#1A1A1A99] rounded-lg backdrop-blur-md shadow-inner w-full">
         Zatiaľ neexistuje žiadna história analýz.
       </div>
     );
   }
 
   return (
-    <div className="w-full bg-white/5 rounded-lg backdrop-blur-md shadow-inner" style={{ height: "100px", overflowY: "auto" }}>
+    <div className="w-full bg-white/5 rounded-lg backdrop-blur-md shadow-inner" style={{  backgroundColor: '#1A1A1A99', backdropFilter: 'blur(8px)', height: "100px", overflowY: "auto" }}>
       {/* Удаляем заголовок
       <div style={{ 
         display: 'grid', 
