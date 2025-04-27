@@ -10,6 +10,12 @@
   margin-top: 20px;
 }
 
+.button-historia:hover
+{
+  background-color: #007AFF;
+}
+
+
 .app-container {
   min-height: 100vh;
   width: 100vw;
