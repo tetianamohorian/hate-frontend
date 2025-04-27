@@ -54,7 +54,9 @@ const InfoBox = () => {
 
         
         {showHistory && (
-          <>
+           <div
+            className="overflow-hidden transition-all duration-500 ease-in-out opacity-100 max-h-[500px]"
+           >
             <h3 className="text-left text-white text-lg font-semibold mt-8 mb-4"
                 style={{ backgroundColor: '#1A1A1A99', backdropFilter: 'blur(8px)', padding: '10px', borderRadius: '8px' }}>
               🕘 História analýz
@@ -63,7 +65,7 @@ const InfoBox = () => {
             <div className="w-full mt-6 max-w-full mb-8">
               <Historia history={history} />
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
