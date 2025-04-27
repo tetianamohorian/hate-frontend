@@ -45,7 +45,7 @@ const InfoBox = () => {
         {!showHistory && (
           <button 
             onClick={() => setShowHistory(!showHistory)}
-            className="mt-10 mb-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg ье-6 transition"
           >
             📑 Zobraziť históriu
           </button>
