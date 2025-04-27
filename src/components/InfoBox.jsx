@@ -43,12 +43,13 @@ const InfoBox = () => {
       <div className="flex flex-col items-center w-full">
         <ChatInput onSubmit={handleSendMessage} />
         {!showHistory && (
-          <button
-            onClick={() => setShowHistory(true)}
-            className="bg-[#007AFF] hover:bg-[#005ECF] text-white font-semibold py-3 px-6 rounded-lg mt-6 transition"
+          <button 
+            onClick={() => setShowHistory(!showHistory)}
+            className="mt-6 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition"
           >
-            🧾 Zobraziť históriu
+            📑 Zobraziť históriu
           </button>
+
         )}
 
         
