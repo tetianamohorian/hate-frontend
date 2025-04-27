@@ -21,6 +21,10 @@
   animation:  rotateBackground 60s linear infinite;
 }
 
+button
+{
+  background-color: #007AFF;
+}
 
 @keyframes rotateBackground {
   0% {
