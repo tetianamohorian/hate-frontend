@@ -4,7 +4,7 @@ const Historia = ({ history }) => {
   if (!history || history.length === 0) {
     return (
       <div className="text-center text-gray-400 p-4 bg-[#1A1A1A99] rounded-lg backdrop-blur-md shadow-inner w-full"
-           style = {{padding: '10px', borderRadius: '8px' }}">
+           style = {{padding: '10px', borderRadius: '8px' }}>
         Zatiaľ neexistuje žiadna história analýz.
       </div>
     );
