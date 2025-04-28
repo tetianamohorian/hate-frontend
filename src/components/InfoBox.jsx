@@ -94,7 +94,9 @@ const InfoBox = () => {
       position: 'absolute',
       left: '0',
       top: '50%',
-      transform: 'translateY(-50%)'
+      transform: 'translateY(-50%)',
+      paddingTop: '7px',
+      paddingBottom: '7px'
     }}>
       🕘 História analýz
     </span>
@@ -102,7 +104,9 @@ const InfoBox = () => {
       position: 'absolute',
       right: '0',
       top: '50%',
-      transform: 'translateY(-50%)'
+      transform: 'translateY(-50%)',
+      paddingTop: '7px',
+      paddingBottom: '7px'
     }}>
       {showHistory ? <ChevronUp size={24}/> : <ChevronDown size={24}/>}
     </span>
