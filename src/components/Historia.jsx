@@ -3,43 +3,24 @@ import React from 'react';
 const Historia = ({ history }) => {
   if (!history || history.length === 0) {
     return (
-      <div className="text-center text-gray-400 p-4 bg-[#1A1A1A99] rounded-lg backdrop-blur-md shadow-inner w-full"
-           style = {{padding: '10px', borderRadius: '8px' }}>
+      <div className="text-gray-400 text-center">
         Zatiaľ neexistuje žiadna história analýz.
       </div>
     );
   }
 
   return (
-    <div className="w-full bg-white/5 rounded-lg backdrop-blur-md shadow-inner" style={{  backgroundColor: '#1A1A1A99', backdropFilter: 'blur(8px)', height: "100px", overflowY: "auto", borderRadius: '8px' }}>
-      {/* Удаляем заголовок
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: '1fr 1fr 1fr', 
-        width: '100%',
-        position: 'sticky',
-        top: 0,
-        backgroundColor: 'rgba(255, 255, 255, 0.1)'
-      }} className="text-xs uppercase text-gray-400">
-        <div className="px-4 py-3">Text</div>
-        <div className="px-4 py-3">Výsledok</div>
-        <div className="px-4 py-3 text-right">Dátum</div>
-      </div>
-      */}
-
-      {/* Строки данных без разделительных линий */}
+    <div className="space-y-2 max-h-[200px] overflow-y-auto px-2 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
       {history.map((item, index) => (
-        <div key={index} style={{ 
-          display: 'grid', 
-          gridTemplateColumns: '1fr 1fr 1fr', 
-          width: '100%',
-          // Удаляем border-bottom
-        }} className="hover:bg-white/5 transition">
-          <div className="px-4 py-3 truncate">{item.text}</div>
-          <div className={`px-4 py-3 ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400 font-semibold' : 'text-green-400 font-semibold'}`}>
+        <div
+          key={index}
+          className="flex justify-between items-center bg-white/5 hover:bg-white/10 transition p-2 rounded-md"
+        >
+          <span className="truncate max-w-[30%] text-white text-sm">{item.text}</span>
+          <span className={`text-sm ${item.prediction === 'Pravdepodobne toxický' ? 'text-red-400' : 'text-green-400'}`}>
             {item.prediction}
-          </div>
-          <div className="px-4 py-3 text-right">{item.timestamp}</div>
+          </span>
+          <span className="text-xs text-gray-400 text-right">{item.timestamp}</span>
         </div>
       ))}
     </div>
