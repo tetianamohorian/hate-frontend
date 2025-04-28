@@ -7,13 +7,12 @@ const Historia = ({ history }) => {
 
   return (
     <div className="w-full">
-
-        <table className="min-w-full table-auto border-collapse text-gray-300">
+        <table className="min-w-[80%] table-fixed border-collapse text-gray-300">
           <tbody>
             {history.map((item, index) => (
               <tr key={index} className={index % 2 === 0 ? 'bg-gray-800/40' : 'bg-gray-800/20'}>
-                <td className="px-10 py-3 text-left">{item.text}</td>
-                <td className="px-10 py-3 text-center">
+                <td className="px-6 py-3 text-left">{item.text}</td>
+                <td className="px-6 py-3 text-center">
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                     item.prediction.includes("toxický") 
                       ? "bg-red-500/40 text-red-100" 
@@ -22,7 +21,7 @@ const Historia = ({ history }) => {
                     {item.prediction}
                   </span>
                 </td>
-                <td className="px-10 py-3 text-right text-gray-400 text-xs">{item.timestamp}</td>
+                <td className="px-6 py-3 text-right text-gray-400 text-xs">{item.timestamp}</td>
               </tr>
             ))}
           </tbody>
