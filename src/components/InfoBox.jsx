@@ -97,7 +97,7 @@ const InfoBox = () => {
       left: '0',
       top: '50%',
       transform: 'translateY(-50%)',
-      paddingTop: '7px',
+      paddingTop: '-7px',
       paddingBottom: '7px'
     }}>
       🕘 História analýz
