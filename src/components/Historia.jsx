@@ -27,7 +27,6 @@ const Historia = ({ history }) => {
         </tbody>
       </table>
     </div>
-  );
 };
 
 export default Historia;
