@@ -6,13 +6,13 @@ const Historia = ({ history }) => {
   }
 
   return (
-    <div className="w-full overflow-x-auto">
-      <table className="w-full table-auto text-sm text-gray-300">
+    <div className="flex justify-center w-full">
+      <table className="w-auto table-auto text-sm text-gray-300">
         <tbody>
           {history.map((item, index) => (
             <tr key={index} className={index % 2 === 0 ? 'bg-gray-800/40' : 'bg-gray-800/20'}>
-              <td className="px-4 py-2 text-left">{item.text}</td>
-              <td className="px-4 py-2 text-center">
+              <td className="px-6 py-3 text-left">{item.text}</td>
+              <td className="px-6 py-3 text-center">
                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                   item.prediction.includes("toxický") 
                   ? "bg-red-500/40 text-red-100" 
@@ -21,7 +21,7 @@ const Historia = ({ history }) => {
                   {item.prediction}
                 </span>
               </td>
-              <td className="px-4 py-2 text-right text-gray-400 text-xs">{item.timestamp}</td>
+              <td className="px-6 py-3 text-right text-gray-400 text-xs">{item.timestamp}</td>
             </tr>
           ))}
         </tbody>
