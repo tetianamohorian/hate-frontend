@@ -76,7 +76,7 @@ const InfoBox = () => {
           <button
             onClick={() => setShowHistory(!showHistory)}
             disabled={isLoading}
-            className={`flex justify-between items-center
+            className={`button-historia flex justify-between items-center
                         w-full py-3 px-5 rounded-lg transition
                         font-semibold text-white
                         bg-gray-800/70 hover:bg-gray-800/90
