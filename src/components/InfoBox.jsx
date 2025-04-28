@@ -75,17 +75,39 @@ const InfoBox = () => {
         
         <div className="relative w-full mt-8 max-w-3x">
           <button
-            onClick={() => setShowHistory(!showHistory)}
-            disabled={isLoading}
-            className={`button-historia flex justify-between items-center
-                        w-full py-3 px-5 rounded-lg transition
-                        font-semibold text-white
-                        bg-gray-800/70 hover:bg-gray-800/90
-                        ${isLoading && 'opacity-50 cursor-not-allowed'}`}
-          >
-            <span className="text-left">🕘 História analýz</span>
-            {showHistory ? <ChevronUp size={24}/> : <ChevronDown size={24}/>}
-          </button>
+  onClick={() => setShowHistory(!showHistory)}
+  disabled={isLoading}
+  className="button-historia w-full py-3 px-5 rounded-lg transition font-semibold text-white bg-gray-800/70 hover:bg-gray-800/90"
+  style={{
+    position: 'relative',
+    display: 'block',
+    width: '100%',
+    textAlign: 'center'
+  }}
+>
+  <div style={{
+    position: 'relative',
+    display: 'inline-block',
+    width: '100%'
+  }}>
+    <span style={{
+      position: 'absolute',
+      left: '0',
+      top: '50%',
+      transform: 'translateY(-50%)'
+    }}>
+      🕘 História analýz
+    </span>
+    <span style={{
+      position: 'absolute',
+      right: '0',
+      top: '50%',
+      transform: 'translateY(-50%)'
+    }}>
+      {showHistory ? <ChevronUp size={24}/> : <ChevronDown size={24}/>}
+    </span>
+  </div>
+</button>
           
           {showHistory && (
             <div
