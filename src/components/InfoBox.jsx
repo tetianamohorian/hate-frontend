@@ -79,7 +79,7 @@ const InfoBox = () => {
   disabled={isLoading}
   className="button-historia w-full py-3 px-5 rounded-lg transition font-semibold text-white bg-gray-800/70 hover:bg-gray-800/90"
   style={{
-    maxHeight: window.innerWidth <= 768 ? '50px' : '140px',
+    maxHeight: window.innerWidth <= 426 ? '30px' : '140px',
     position: 'relative',
     display: 'block',
     width: '100%',
