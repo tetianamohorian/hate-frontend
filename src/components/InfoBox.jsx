@@ -57,6 +57,8 @@ const InfoBox = () => {
   useEffect(() => {
     fetchHistory();
   }, []);
+
+
   return (
     <div className="info-container text-center w-full pb-16">
       <h2 className={isLoading ? "pulse" : ""}>{isLoading ? 'Analyzujem text...' : headerText}</h2>
@@ -71,19 +73,19 @@ const InfoBox = () => {
           </div>
         )}
         
-       <button
-  onClick={() => setShowHistory(!showHistory)}
-  disabled={isLoading}
-  className={`flex items-center items-center justify-center space-x-3
-               w-full py-3 px-5 rounded-lg transition
-              font-semibold text-white bg-gray-800/70 hover:bg-gray-800/90
-              ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
->
-  <div className="flex items-center space-x-2">
-    <span className="text-lg">🕘 História analýz </span>
-  </div>
-  {showHistory ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-</button>
+        <div className="relative w-full mt-8 max-w-3x">
+          <button
+            onClick={() => setShowHistory(!showHistory)}
+            disabled={isLoading}
+            className={`button-historia flex justify-between items-center
+                        w-full py-3 px-5 rounded-lg transition
+                        font-semibold text-white
+                        bg-gray-800/70 hover:bg-gray-800/90
+                        ${isLoading && 'opacity-50 cursor-not-allowed'}`}
+          >
+            <span className="text-left">🕘 História analýz</span>
+            {showHistory ? <ChevronUp size={24}/> : <ChevronDown size={24}/>}
+          </button>
           
           {showHistory && (
             <div
@@ -99,7 +101,7 @@ const InfoBox = () => {
                 scrollbarColor: '#4B5563 transparent'
               }}
             >
-              <div className="history-container w-full mt-8" style={{minHeight: '150px', maxWidth: "100%" }}>
+              <div className="history-container" style={{minHeight: '150px'}}>
                  <div className="flex justify-center">
                     <Historia history={history}/>
                    </div>
@@ -108,6 +110,7 @@ const InfoBox = () => {
           )}
         </div>
       </div>
+    </div>
   );
 };
 
