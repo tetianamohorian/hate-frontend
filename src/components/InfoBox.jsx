@@ -82,7 +82,9 @@ const InfoBox = () => {
     position: 'relative',
     display: 'block',
     width: '100%',
-    textAlign: 'center'
+    textAlign: 'center',
+    height: '48px',
+    transition: 'all 0.3s ease'
   }}
 >
   <div style={{
