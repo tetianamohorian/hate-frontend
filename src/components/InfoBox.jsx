@@ -42,7 +42,7 @@ const InfoBox = () => {
       
       if (response.ok) {
         setHeaderText(data.prediction);
-        setParagraphText(Váš text bol: "${userMessage}");
+        setParagraphText(`Váš text bol: "${userMessage}"`);
         fetchHistory();
       } else {
         console.error("Server vrátil chybu:", data.error);
@@ -117,13 +117,13 @@ const InfoBox = () => {
           
           {showHistory && (
             <div
-              className={w-full
+              className={`w-full
                          mt-2 p-4 rounded-lg
                          bg-gray-900/80 backdrop-blur-md
                          overflow-y-auto max-h-40
                           transition-all duration-500 ease-in-out
                           mx-auto
-                          ${showHistory ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}}
+                          ${showHistory ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'`}}
                          
               style={{
                 maxHeight: '80px',
