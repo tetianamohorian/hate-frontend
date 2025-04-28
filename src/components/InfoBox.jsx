@@ -88,8 +88,7 @@ const InfoBox = () => {
           
           {showHistory && (
             <div
-              className="absolute left-1/2 transform -translate-x-1/2 
-                         w-[95%]
+              className="w-full
                          mt-2 p-4 rounded-lg
                          bg-gray-900/80 backdrop-blur-md
                          overflow-y-auto max-h-40
