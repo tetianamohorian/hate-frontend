@@ -72,16 +72,16 @@ const InfoBox = () => {
           </div>
         )}
         
+
 <div className="relative w-full mt-8">
- 
+
   <button
     onClick={() => setShowHistory(!showHistory)}
     disabled={isLoading}
-    className={`flex justify-between items-center
-                w-full py-3 px-5 rounded-lg transition
-                font-semibold text-white
-                bg-gray-800/70 hover:bg-gray-800/90
-                ${isLoading && 'opacity-50 cursor-not-allowed'}`}
+    className={`w-full flex items-center justify-between
+                py-3 px-5 rounded-lg font-semibold text-white
+                bg-gray-800/70 hover:bg-gray-800/90 transition
+                ${isLoading && 'cursor-not-allowed opacity-50'}`}
   >
     <span className="text-left">🕘 História analýz</span>
     {showHistory ? <ChevronUp size={24}/> : <ChevronDown size={24}/>}
@@ -92,8 +92,8 @@ const InfoBox = () => {
     <div
       className="absolute left-0 right-0 mt-2 p-4 rounded-lg
                  bg-gray-900/80 backdrop-blur-md
-                 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700"
-      style={{ maxHeight: '224px' }} 
+                 max-h-40 overflow-y-auto
+                 scrollbar-thin scrollbar-thumb-gray-600"
     >
       <Historia history={history}/>
     </div>
