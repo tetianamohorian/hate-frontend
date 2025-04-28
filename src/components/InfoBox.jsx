@@ -74,21 +74,23 @@ const InfoBox = () => {
             <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
           </div>
         )}
-       <div className="w-full max-w-2xl mt-8">
-          <button
-            onClick={() => setShowHistory(!showHistory)}
-            className="flex justify-between items-center w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-5 rounded-lg transition focus:outline-none"
-          >
-            <span className="text-lg">🕘 História analýz</span>
-            {showHistory ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-          </button>
-
         
-          {showHistory && (
-            <div className="mt-4 bg-[#1A1A1A99] rounded-lg backdrop-blur-md p-4 shadow-inner overflow-y-auto max-h-48 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
-              <Historia history={history} />
-            </div>
-          )}
+       <div className="w-full max-w-2xl mt-8">
+  <button
+    onClick={() => setShowHistory(!showHistory)}
+    className="flex justify-between items-center w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-5 rounded-lg transition focus:outline-none"
+  >
+    <span className="text-left">🕘 História analýz</span>
+    {showHistory ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+  </button>
+
+  {/* Блок истории */}
+  {showHistory && (
+    <div className="mt-4 bg-[#1A1A1A99] rounded-lg backdrop-blur-md p-4 shadow-inner overflow-y-auto max-h-48 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+      <Historia history={history} />
+    </div>
+  )}
+
        
        </div>
       </div>
