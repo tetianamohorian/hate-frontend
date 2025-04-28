@@ -7,6 +7,7 @@ const InfoBox = () => {
   const [paragraphText, setParagraphText] = useState('Tento nástroj využíva umelú inteligenciu na identifikáciu toxického obsahu v textoch. Stačí zadať text a zistiť, či obsahuje nenávistný jazyk.');
   const [history, setHistory] = useState([]);
   const [showHistory, setShowHistory] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   
   const fetchHistory = async () => {
     try {
@@ -20,6 +21,7 @@ const InfoBox = () => {
 
   const handleSendMessage = async (userMessage) => {
     try {
+       setIsLoading(true);
        const response = await fetch("https://hate-backend-production.up.railway.app/api/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -37,6 +39,9 @@ const InfoBox = () => {
     } catch (error) {
       console.error("Chyba pri odosielaní:", error);
     }
+    finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -45,12 +50,19 @@ const InfoBox = () => {
 
   return (
     <div className="info-container text-center w-full pb-16">
-      <h2>{headerText}</h2>
-      <p>{paragraphText}</p>
+      <h2>{isLoading ? 'Analyzujem text...' : headerText}</h2>
+      <p>{isLoading ? 'Prosím čakajte, prebieha analýza.' : paragraphText}</p>
       
       <div className="flex flex-col items-center w-full">
         <ChatInput onSubmit={handleSendMessage} />
-        {!showHistory && (
+
+      {isLoading && (
+          <div className="flex justify-center items-center mt-4">
+            <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+          </div>
+        )}
+        
+        {!showHistory && !isLoading &&(
           <button 
             onClick={() => setShowHistory(!showHistory)}
             className="button-historia bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg ье-6 transition"
