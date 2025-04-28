@@ -73,32 +73,26 @@ const InfoBox = () => {
             <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
           </div>
         )}
-        
-        {!showHistory && !isLoading &&(
-          <button 
+        !isLoading && (
+          <button
             onClick={() => setShowHistory(!showHistory)}
-            className="button-historia bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg ье-6 transition"
+            className="mt-8 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition"
           >
-            📑 Zobraziť históriu
+            📑 {showHistory ? "Skryť históriu" : "Zobraziť históriu"}
           </button>
-
         )}
 
-        
-        {showHistory && (
-           <div
-            className="overflow-hidden transition-all duration-500 ease-in-out opacity-100 max-h-[500px]"
-           >
-            <h3 className="text-left text-white text-lg font-semibold mt-8 mb-4"
+        {showHistory && !isLoading && (
+          <div className="overflow-hidden transition-all duration-500 ease-in-out opacity-100 max-h-[500px] mt-6 w-full max-w-xl bg-white/5 p-4 rounded-lg shadow-inner backdrop-blur-md">
+            <h3 className="text-white text-lg font-semibold text-center mb-4"
                 style={{ backgroundColor: '#1A1A1A99', backdropFilter: 'blur(8px)', padding: '10px', borderRadius: '8px' }}>
               🕘 História analýz
             </h3>
 
-            <div className="w-full mt-6 max-w-full mb-8">
-              <Historia history={history} />
-            </div>
+            <Historia history={history} />
           </div>
         )}
+       
       </div>
     </div>
   );
