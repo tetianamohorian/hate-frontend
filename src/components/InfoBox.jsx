@@ -9,7 +9,7 @@ const InfoBox = () => {
   const [history, setHistory] = useState([]);
   const [showHistory, setShowHistory] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const fetchHistory = async () => {
     try {
       const response = await fetch("https://hate-backend-production.up.railway.app/api/history");
@@ -23,7 +23,7 @@ const InfoBox = () => {
   const handleSendMessage = async (userMessage) => {
     setHeaderText("Analyzujem text...");
     setParagraphText("Analyzujeme váš text, prosím čakajte...");
-    setIsLoading(true); 
+    setIsLoading(true);
     const startTime = Date.now();
     
     try {
@@ -39,7 +39,7 @@ const InfoBox = () => {
       if (elapsed < minimumDelay) {
         await new Promise(resolve => setTimeout(resolve, minimumDelay - elapsed));
       }
-      
+
       if (response.ok) {
         setHeaderText(data.prediction);
         setParagraphText(`Váš text bol: "${userMessage}"`);
@@ -62,49 +62,40 @@ const InfoBox = () => {
     <div className="info-container text-center w-full pb-16">
       <h2 className={isLoading ? "pulse" : ""}>{isLoading ? 'Analyzujem text...' : headerText}</h2>
       <p>{isLoading ? 'Prosím čakajte, prebieha analýza.' : paragraphText}</p>
-      
+
       <div className="flex flex-col items-center w-full">
         <ChatInput onSubmit={handleSendMessage} />
-        
+
         {isLoading && (
           <div className="flex justify-center items-center mt-4">
             <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
           </div>
         )}
-        
-        <div className="relative w-full mt-8 max-w-3x">
+
+        <div className="relative w-full max-w-3xl mt-8">
           <button
             onClick={() => setShowHistory(!showHistory)}
             disabled={isLoading}
-            className={`button-historia flex justify-between items-center
+            className={`button-historia flex justify-center items-center gap-2
                         w-full py-3 px-5 rounded-lg transition
                         font-semibold text-white
                         bg-gray-800/70 hover:bg-gray-800/90
                         ${isLoading && 'opacity-50 cursor-not-allowed'}`}
           >
-            <span className="text-left">🕘 História analýz</span>
-            {showHistory ? <ChevronUp size={24}/> : <ChevronDown size={24}/>}
+            🕘 História analýz
+            {showHistory ? <ChevronUp size={20}/> : <ChevronDown size={20}/>}
           </button>
-          
+
           {showHistory && (
             <div
-              className="w-full
-                         mt-2 p-4 rounded-lg
-                         bg-gray-900/80 backdrop-blur-md
-                         overflow-y-auto max-h-40
-                         mx-auto"
+              className="w-full mt-2 p-4 rounded-lg bg-gray-900/80 backdrop-blur-md overflow-y-auto"
               style={{
-                maxHeight: '100px',
-                overflowY: 'auto',
+                maxHeight: '150px',
                 scrollbarWidth: 'thin',
                 scrollbarColor: '#4B5563 transparent'
               }}
             >
-              <div className="history-container" style={{minHeight: '150px'}}>
-                 <div className="flex justify-center">
-                    <Historia history={history}/>
-                   </div>
-              </div>
+              <Historia history={history}/>
             </div>
           )}
         </div>
