@@ -42,7 +42,7 @@ const InfoBox = () => {
       
       if (response.ok) {
         setHeaderText(data.prediction);
-        setParagraphText(`Váš text bol: "${userMessage}"`);
+        setParagraphText(Váš text bol: "${userMessage}");
         fetchHistory();
       } else {
         console.error("Server vrátil chybu:", data.error);
@@ -116,28 +116,33 @@ const InfoBox = () => {
 </button>
           
           {showHistory && (
-  <div
-    className={`w-full mt-2 p-4 rounded-lg bg-gray-900/80 backdrop-blur-md overflow-y-auto mx-auto
-      transition-all duration-500 ease-in-out
-      ${showHistory ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
-    style={{
-      overflowY: 'auto',
-      scrollbarWidth: 'thin',
-      scrollbarColor: '#4B5563 transparent'
-    }}
-  >
-    <div className="history-container" style={{ minHeight: window.innerWidth <= 426 ? '20px' : '140px' }}>
-      <div className="flex justify-center">
-        <Historia history={history} />
-      </div>
-    </div>
-  </div>
-)}
-
+            <div
+              className={w-full
+                         mt-2 p-4 rounded-lg
+                         bg-gray-900/80 backdrop-blur-md
+                         overflow-y-auto max-h-40
+                          transition-all duration-500 ease-in-out
+                          mx-auto
+                          ${showHistory ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}}
+                         
+              style={{
+                maxHeight: '80px',
+                overflowY: 'auto',
+                scrollbarWidth: 'thin',
+                scrollbarColor: '#4B5563 transparent'
+              }}
+            >
+              <div className="history-container" style={{minHeight: '150px', minHeight: window.innerWidth <= 426 ? '20px' : '140px',}}>
+                 <div className="flex justify-center">
+                    <Historia history={history}/>
+                   </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default InfoBox;
+export default InfoBox; 
