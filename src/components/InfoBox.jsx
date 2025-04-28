@@ -94,7 +94,7 @@ const InfoBox = () => {
                          overflow-y-auto max-h-40
                          mx-auto"
               style={{
-                maxHeight: '140px',
+                maxHeight: '100px',
                 overflowY: 'auto',
                 scrollbarWidth: 'thin',
                 scrollbarColor: '#4B5563 transparent'
