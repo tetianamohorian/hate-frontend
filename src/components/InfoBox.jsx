@@ -82,8 +82,8 @@ const InfoBox = () => {
                         ${isLoading && 'opacity-50 cursor-not-allowed'}`}
           >
           <div className="flex items-center">
-            <span className="mr-2">🕘 História analýz</span>
-            {showHistory ? <ChevronUp size={24}/> : <ChevronDown size={24}/>}
+            <span className="mr-2">🕘 História analýz  </span>
+            {showHistory ? <ChevronUp size={24}/> : <ChevronDown size={20}/>}
           </div>
           </button>
           
