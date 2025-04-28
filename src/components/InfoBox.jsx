@@ -62,7 +62,7 @@ const InfoBox = () => {
 
   return (
     <div className="info-container text-center w-full pb-16">
-      <h2>{isLoading ? 'Analyzujem text...' : headerText}</h2>
+      <h2 className={isLoading ? "pulse" : ""}>{isLoading ? 'Analyzujem text...' : headerText}</h2>
       <p>{isLoading ? 'Prosím čakajte, prebieha analýza.' : paragraphText}</p>
       
       <div className="flex flex-col items-center w-full">
