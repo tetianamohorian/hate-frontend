@@ -122,8 +122,9 @@ const InfoBox = () => {
                          bg-gray-900/80 backdrop-blur-md
                          overflow-y-auto max-h-40
                           transition-all duration-500 ease-in-out
+                          mx-auto
                           ${showHistory ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
-                         mx-auto"
+                         
               style={{
                 maxHeight: '80px',
                 overflowY: 'auto',
