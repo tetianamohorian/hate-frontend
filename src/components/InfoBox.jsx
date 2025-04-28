@@ -79,7 +79,6 @@ const InfoBox = () => {
   disabled={isLoading}
   className="button-historia w-full py-3 px-5 rounded-lg transition font-semibold text-white bg-gray-800/70 hover:bg-gray-800/90"
   style={{
-    maxHeight: window.innerWidth <= 426 ? '30px' : '140px',
     position: 'relative',
     display: 'block',
     width: '100%',
@@ -130,7 +129,7 @@ const InfoBox = () => {
                 scrollbarColor: '#4B5563 transparent'
               }}
             >
-              <div className="history-container" style={{minHeight: '150px'}}>
+              <div className="history-container" style={{minHeight: '150px', maxHeight: window.innerWidth <= 426 ? '50px' : '140px',}}>
                  <div className="flex justify-center">
                     <Historia history={history}/>
                    </div>
