@@ -72,7 +72,7 @@ const InfoBox = () => {
           </div>
         )}
         
-        <div className="relative w-full mt-8">
+        <div className="relative w-full mt-8 max-w-3x">
           <button
             onClick={() => setShowHistory(!showHistory)}
             disabled={isLoading}
