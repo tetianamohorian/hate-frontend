@@ -123,7 +123,7 @@ const InfoBox = () => {
                          overflow-y-auto max-h-40
                           transition-all duration-500 ease-in-out
                           mx-auto
-                          ${showHistory ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'`}}
+                          ${showHistory ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'} `}
                          
               style={{
                 maxHeight: '80px',
