@@ -6,9 +6,9 @@ const Historia = ({ history }) => {
   }
 
   return (
-    <div className="flex justify-center w-full">
-      <div className="overflow-x-auto w-full max-w-3xl">
-        <table className="table-fixed border-collapse text-gray-300 w-full">
+    <div className="w-full">
+
+        <table className="min-w-full border-collapse text-gray-300">
           <tbody>
             {history.map((item, index) => (
               <tr key={index} className={index % 2 === 0 ? 'bg-gray-800/40' : 'bg-gray-800/20'}>
@@ -27,7 +27,6 @@ const Historia = ({ history }) => {
             ))}
           </tbody>
         </table>
-      </div>
     </div>
   );
 };
