@@ -25,6 +25,9 @@ const InfoBox = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: userMessage }),
       });
+      const data = await response.json();
+      setHeaderText(data.prediction);
+      setParagraphText(`Váš text bol: "${userMessage}"`);
       fetchHistory();
     } catch (error) {
       console.error("Chyba pri odosielaní:", error);
