@@ -98,7 +98,7 @@ const InfoBox = () => {
                 scrollbarColor: '#4B5563 transparent'
               }}
             >
-              <div className="history-container" style={{minHeight: '150px'}}>
+              <div className="history-container w-full mt-8" style={{minHeight: '150px', maxWidth: "100%" }}>
                  <div className="flex justify-center">
                     <Historia history={history}/>
                    </div>
