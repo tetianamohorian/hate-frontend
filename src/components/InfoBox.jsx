@@ -20,15 +20,20 @@ const InfoBox = () => {
 
   const handleSendMessage = async (userMessage) => {
     try {
-      await fetch("https://hate-backend-production.up.railway.app/api/predict", {
+       const response = await fetch("https://hate-backend-production.up.railway.app/api/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: userMessage }),
       });
       const data = await response.json();
+      if (response.ok) {
       setHeaderText(data.prediction);
       setParagraphText(`Váš text bol: "${userMessage}"`);
       fetchHistory();
+    } else {
+      console.error("Server vrátil chybu:", data.error);
+    }
+      
     } catch (error) {
       console.error("Chyba pri odosielaní:", error);
     }
