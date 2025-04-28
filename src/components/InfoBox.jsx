@@ -23,6 +23,7 @@ const InfoBox = () => {
     setHeaderText("Analyzujem text...");
     setParagraphText("Analyzujeme váš text, prosím čakajte...");
     setIsLoading(true); 
+    const startTime = Date.now();
     
     try {
        const response = await fetch("https://hate-backend-production.up.railway.app/api/predict", {
@@ -31,6 +32,14 @@ const InfoBox = () => {
         body: JSON.stringify({ text: userMessage }),
       });
       const data = await response.json();
+      const elapsed = Date.now() - startTime;
+      const minimumDelay = 5000;
+
+      if (elapsed < minimumDelay) 
+      {
+      await new Promise(resolve => setTimeout(resolve, minimumDelay - elapsed));
+      }
+      
       if (response.ok) {
       setHeaderText(data.prediction);
       setParagraphText(`Váš text bol: "${userMessage}"`);
