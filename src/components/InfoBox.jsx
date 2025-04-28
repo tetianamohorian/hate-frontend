@@ -89,7 +89,7 @@ const InfoBox = () => {
             </div>
           )}
        
-       
+       </div>
       </div>
     </div>
   );
