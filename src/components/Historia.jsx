@@ -5,25 +5,14 @@ const Historia = ({ history }) => {
     return <p className="text-center text-gray-400">Zatiaľ žiadna história</p>;
   }
 
-  // Функция для форматирования даты и времени
-  const formatDateTime = (timestamp) => {
-    try {
-      const date = new Date(timestamp);
-      // Форматируем дату как ДД.ММ.ГГГГ ЧЧ:ММ
-      return `${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-    } catch (e) {
-      return 'Invalid Date';
-    }
-  };
-
   return (
-    <div className="w-full">
-      <table className="w-full border-collapse">
+    <div className="w-full overflow-x-auto">
+      <table className="w-full table-auto text-sm text-gray-300">
         <tbody>
           {history.map((item, index) => (
             <tr 
               key={index} 
-              className={index % 2 === 0 ? "bg-gray-800/40" : "bg-gray-800/20"}
+              className={index % 2 === 0 ? "bg-gray-800/40" : "bg-gray-800/40"}
             >
               <td className="py-3 px-4 text-center text-white w-1/3">{item.text}</td>
               <td className="py-3 px-4 text-center w-1/3">
