@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer-container">
       <p>Created by Tetiana Mohorian</p>
       <div className="footer-icons">
-        <a href="https://t.me/hate_speech_slovak_bot" target="_blank" rel="noopener noreferrer">
+        <a href="https://t.me/hate_speech_sk_bot" target="_blank" rel="noopener noreferrer">
           <FaTelegram size={32} />
         </a>
         <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">
