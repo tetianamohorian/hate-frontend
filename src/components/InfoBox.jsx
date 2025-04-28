@@ -101,7 +101,9 @@ const InfoBox = () => {
               }}
             >
               <div className="history-container" style={{minHeight: '150px'}}>
-                <Historia history={history}/>
+                 <div className="flex justify-center">
+                    <Historia history={history}/>
+                   </div>
               </div>
             </div>
           )}
