@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+mport React, { useState, useEffect } from 'react';
 import ChatInput from './ChatInput.jsx';
 import Historia from './Historia.jsx';
 import { ChevronDown, ChevronUp } from 'lucide-react';
@@ -90,17 +90,15 @@ const InfoBox = () => {
             <div
               className="absolute left-0 right-0 mt-2 p-4 rounded-lg
                          bg-gray-900/80 backdrop-blur-md
-                         overflow-y-auto max-h-40"
+                         shadow-lg z-10"
               style={{
-                maxHeight: '140px',
+                maxHeight: '300px',
                 overflowY: 'auto',
                 scrollbarWidth: 'thin',
                 scrollbarColor: '#4B5563 transparent'
               }}
             >
-              <div className="history-container" style={{minHeight: '150px'}}>
-                <Historia history={history}/>
-              </div>
+              <Historia history={history}/>
             </div>
           )}
         </div>
