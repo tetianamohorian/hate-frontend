@@ -92,7 +92,8 @@ const InfoBox = () => {
                          w-[95%]
                          mt-2 p-4 rounded-lg
                          bg-gray-900/80 backdrop-blur-md
-                         overflow-y-auto max-h-40"
+                         overflow-y-auto max-h-40
+                         mx-auto"
               style={{
                 maxHeight: '140px',
                 overflowY: 'auto',
