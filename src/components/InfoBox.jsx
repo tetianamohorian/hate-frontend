@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ChatInput from './ChatInput.jsx';
 import Historia from './Historia.jsx';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const InfoBox = () => {
   const [headerText, setHeaderText] = useState('Analyzujte text na nenávistný jazyk');
