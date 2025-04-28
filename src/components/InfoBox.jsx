@@ -20,8 +20,11 @@ const InfoBox = () => {
   };
 
   const handleSendMessage = async (userMessage) => {
+    setHeaderText("Analyzujem text...");
+    setParagraphText("Analyzujeme váš text, prosím čakajte...");
+    setIsLoading(true); 
+    
     try {
-       setIsLoading(true);
        const response = await fetch("https://hate-backend-production.up.railway.app/api/predict", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
