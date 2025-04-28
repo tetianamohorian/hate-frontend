@@ -8,7 +8,7 @@ const Historia = ({ history }) => {
   return (
     <div className="w-full">
 
-        <table className="min-w-full border-collapse text-gray-300">
+        <table className="min-w-full table-auto border-collapse text-gray-300">
           <tbody>
             {history.map((item, index) => (
               <tr key={index} className={index % 2 === 0 ? 'bg-gray-800/40' : 'bg-gray-800/20'}>
