@@ -73,7 +73,7 @@ const InfoBox = () => {
             <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent border-solid rounded-full animate-spin"></div>
           </div>
         )}
-        !isLoading && (
+        {!isLoading && (
           <button
             onClick={() => setShowHistory(!showHistory)}
             className="mt-8 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition"
