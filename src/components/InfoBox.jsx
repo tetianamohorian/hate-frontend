@@ -90,15 +90,17 @@ const InfoBox = () => {
             <div
               className="absolute left-0 right-0 mt-2 p-4 rounded-lg
                          bg-gray-900/80 backdrop-blur-md
-                         shadow-lg z-10"
+                         overflow-y-auto max-h-40"
               style={{
-                maxHeight: '300px',
+                maxHeight: '140px',
                 overflowY: 'auto',
                 scrollbarWidth: 'thin',
                 scrollbarColor: '#4B5563 transparent'
               }}
             >
-              <Historia history={history}/>
+              <div className="history-container" style={{minHeight: '150px'}}>
+                <Historia history={history}/>
+              </div>
             </div>
           )}
         </div>
