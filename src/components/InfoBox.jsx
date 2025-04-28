@@ -81,8 +81,10 @@ const InfoBox = () => {
                         bg-gray-800/70 hover:bg-gray-800/90
                         ${isLoading && 'opacity-50 cursor-not-allowed'}`}
           >
-            <span className="text-left">🕘 História analýz</span>
+          <div className="flex items-center">
+            <span className="mr-2">🕘 História analýz</span>
             {showHistory ? <ChevronUp size={24}/> : <ChevronDown size={24}/>}
+          </div>
           </button>
           
           {showHistory && (
